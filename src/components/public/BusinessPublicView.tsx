@@ -234,7 +234,7 @@ export default function BusinessPublicView({ data, cardCode = null, onBackToPane
           <section className="px-4 my-2" aria-label="Ana İletişim Butonları">
             <div className={`grid gap-2.5 ${(Number(!!hasPhone) + Number(!!hasWhatsApp) + Number(!!hasMaps) + Number(!!hasSms)) >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
               {hasPhone && (
-                <a href={`tel:${business.contact.phone.value}`} className="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-slate-900 text-white font-semibold shadow-md active:scale-95 transition-all hover:bg-slate-800 text-center touch-manipulation">
+                <a href={`tel:${business.contact.phone.value}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-slate-900 text-white font-semibold shadow-md active:scale-95 transition-all hover:bg-slate-800 text-center touch-manipulation">
                   <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-1 text-white">
                     <Phone className="w-5 h-5 fill-current" />
                   </div>
@@ -318,7 +318,7 @@ export default function BusinessPublicView({ data, cardCode = null, onBackToPane
             )}
 
             {hasEmail && (
-              <a href={`mailto:${business.contact.email.value}`} className="col-span-2 flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-200/90 text-slate-800 shadow-2xs hover:bg-slate-50 active:scale-95 transition-all text-left touch-manipulation">
+              <a href={`mailto:${business.contact.email.value}`} target="_blank" rel="noopener noreferrer" className="col-span-2 flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-200/90 text-slate-800 shadow-2xs hover:bg-slate-50 active:scale-95 transition-all text-left touch-manipulation">
                 <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
                   <Globe className="w-4 h-4" />
                 </div>
@@ -710,7 +710,7 @@ export default function BusinessPublicView({ data, cardCode = null, onBackToPane
 
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-3 py-2 sm:hidden shadow-lg flex items-center justify-around gap-1 max-w-md mx-auto">
         {hasPhone && (
-          <a href={`tel:${business.contact.phone.value}`} className="flex flex-col items-center justify-center text-[10px] font-bold text-slate-700 hover:text-slate-950 active:scale-90 transition-all p-1">
+          <a href={`tel:${business.contact.phone.value}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center text-[10px] font-bold text-slate-700 hover:text-slate-950 active:scale-90 transition-all p-1">
             <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-xs">
               <Phone className="w-4 h-4" />
             </div>

@@ -213,6 +213,8 @@ export function NexTapPublicCard({ business }: { business?: LegacyBusiness }) {
       href: telUrl,
       onClick: undefined,
       isButton: false,
+      target: '_blank',
+      rel: 'noopener noreferrer',
       iconBg: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
       iconColor: '#fff',
       icon: <PhoneIcon size={s.iconSize * 0.45} />,

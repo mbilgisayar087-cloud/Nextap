@@ -13,6 +13,12 @@ export default function RequireAuth({ children }: { children: ReactNode }) {
       </div>
     );
   }
-  if (!session) return <Navigate to="/admin/login" replace />;
+
+  // Session yoksa veya token süresi dolmuşsa login'e yönlendir
+  const isExpired = session?.expires_at ? session.expires_at * 1000 < Date.now() : true;
+  if (!session || isExpired) {
+    return <Navigate to="/admin/login" replace />;
+  }
+
   return <>{children}</>;
 }

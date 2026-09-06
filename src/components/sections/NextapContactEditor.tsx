@@ -61,7 +61,7 @@ export default function NextapContactEditor() {
         </p>
         <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, marginBottom: 14, fontStyle: 'italic' }}>"{data.slogan}"</p>
         <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
-          <a href={`tel:${data.phone}`} style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', padding: '8px 14px', borderRadius: 10, fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>📞 Ara</a>
+          <a href={`tel:${data.phone}`} target="_blank" rel="noopener noreferrer" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', padding: '8px 14px', borderRadius: 10, fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>📞 Ara</a>
           <a href={`https://wa.me/${data.whatsapp.replace(/\D/g,'')}`} target="_blank" rel="noreferrer" style={{ background: '#25D366', color: '#fff', padding: '8px 14px', borderRadius: 10, fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>💬 WhatsApp</a>
           <a href={data.instagram} target="_blank" rel="noreferrer" style={{ background: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', color: '#fff', padding: '8px 14px', borderRadius: 10, fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>📸 Instagram</a>
         </div>

@@ -140,6 +140,8 @@ export default function NfcErrorPage({ type }: { type: ErrorType }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
           <a
             href="tel:+905528134370"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
               padding: '10px 12px', borderRadius: 10,
