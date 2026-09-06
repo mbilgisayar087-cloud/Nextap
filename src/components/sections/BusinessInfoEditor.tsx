@@ -42,26 +42,32 @@ export default function BusinessInfoEditor({ business, onSaved }: { business: Bu
 
   return (
     <div style={{ display: 'grid', gap: 14 }}>
-      <div style={{ display: 'flex', gap: 16 }}>
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
         <div>
           <label>Logo</label>
-          <div style={{ width: 64, height: 64, borderRadius: 12, background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginBottom: 6 }}>
-            {business.logo_url ? <img src={business.logo_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : '🏢'}
+          <div
+            onClick={() => document.getElementById('logo-upload-input')?.click()}
+            style={{ width: 96, height: 96, borderRadius: 12, background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginBottom: 6, cursor: 'pointer', border: '2px dashed #D1D5DB' }}
+          >
+            {business.logo_url ? <img src={business.logo_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <div style={{ textAlign: 'center', color: '#6B7280' }}><div style={{ fontSize: 28 }}>🏢</div><div style={{ fontSize: 10, marginTop: 4 }}>Logo Seç</div></div>}
           </div>
-          <label className="btn btn-secondary btn-sm" style={{ cursor: 'pointer' }}>
-            {uploading === 'logo' ? <Spinner dark /> : 'Yükle'}
-            <input type="file" accept="image/*" hidden onChange={(e) => e.target.files?.[0] && handleUpload('logo', e.target.files[0])} />
+          <label htmlFor="logo-upload-input" className="btn btn-secondary btn-sm" style={{ cursor: 'pointer', display: 'inline-block' }}>
+            {uploading === 'logo' ? <Spinner dark /> : '📷 Galeriden Seç'}
           </label>
+          <input id="logo-upload-input" type="file" accept="image/*" hidden onChange={(e) => e.target.files?.[0] && handleUpload('logo', e.target.files[0])} />
         </div>
         <div>
           <label>Kapak Fotoğrafı</label>
-          <div style={{ width: 110, height: 64, borderRadius: 12, background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginBottom: 6 }}>
-            {business.cover_url ? <img src={business.cover_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : '🖼️'}
+          <div
+            onClick={() => document.getElementById('cover-upload-input')?.click()}
+            style={{ width: 180, height: 96, borderRadius: 12, background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginBottom: 6, cursor: 'pointer', border: '2px dashed #D1D5DB' }}
+          >
+            {business.cover_url ? <img src={business.cover_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <div style={{ textAlign: 'center', color: '#6B7280' }}><div style={{ fontSize: 28 }}>🖼️</div><div style={{ fontSize: 10, marginTop: 4 }}>Kapak Seç</div></div>}
           </div>
-          <label className="btn btn-secondary btn-sm" style={{ cursor: 'pointer' }}>
-            {uploading === 'cover' ? <Spinner dark /> : 'Yükle'}
-            <input type="file" accept="image/*" hidden onChange={(e) => e.target.files?.[0] && handleUpload('cover', e.target.files[0])} />
+          <label htmlFor="cover-upload-input" className="btn btn-secondary btn-sm" style={{ cursor: 'pointer', display: 'inline-block' }}>
+            {uploading === 'cover' ? <Spinner dark /> : '📷 Galeriden Seç'}
           </label>
+          <input id="cover-upload-input" type="file" accept="image/*" hidden onChange={(e) => e.target.files?.[0] && handleUpload('cover', e.target.files[0])} />
         </div>
       </div>
       <div>
