@@ -5,13 +5,12 @@ export interface NextapContact {
   whatsapp: string;
   instagram: string;
   slogan: string;
-  ownerName: string;
 }
 
 export async function getNextapContact(): Promise<NextapContact> {
   const { data, error } = await supabase
     .from('nextap_contact')
-    .select('phone,whatsapp,instagram,slogan,ownerName')
+    .select('phone,whatsapp,instagram,slogan')
     .eq('id', 1)
     .single();
   if (error || !data) {
@@ -20,7 +19,6 @@ export async function getNextapContact(): Promise<NextapContact> {
       whatsapp: '+905528134370',
       instagram: 'https://instagram.com/nextap',
       slogan: 'Bir dokunuşta tüm bilgileriniz — NFC ile geleceğe adım atın!',
-      ownerName: 'Devran Mete',
     };
   }
   return data as NextapContact;
